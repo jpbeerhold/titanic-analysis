@@ -41,14 +41,14 @@ titanic$Pclass <- factor(titanic$Pclass, levels = c(3, 2, 1), labels = c("third"
 # 4. Imputate missing Values with title
 
 # floor the mean for logical purposes
-mean_anrede <- tapply(titanic$Age, titanic$Title, function(x) floor(mean(x, na.rm = TRUE)))
-titanic$Age <- ifelse(is.na(titanic$Age), mean_anrede[titanic$Title],titanic$Age)
+mean_title <- tapply(titanic$Age, titanic$Title, function(x) floor(mean(x, na.rm = TRUE)))
+titanic$Age <- ifelse(is.na(titanic$Age), mean_title[titanic$Title], titanic$Age)
 
 # hier drunter noch die Median Version falls wir die nutzen wollen
 
 # Median Version
-# Median_anrede <- tapply(titanic$Age, titanic$Title, function(x) median(x, na.rm = TRUE))
-# titanic$Age <- ifelse(is.na(titanic$Age), Median_anrede[titanic$Title],titanic$Age)
+median_title <- tapply(titanic$Age, titanic$Title, function(x) median(x, na.rm = TRUE))
+titanic$Age <- ifelse(is.na(titanic$Age), median_title[titanic$Title], titanic$Age)
 
 # 5. 
 # iii) Set those that have nothing noted as NAs
@@ -59,14 +59,14 @@ titanic$Cabin[titanic$Cabin == ""] <- NA
 Side <- function(c){
   # extract Number
   Number <- regexpr("\\d+", c)
-  Cabin_num <- as.numeric(regmatches(c, Number))
+  cabin_num <- as.numeric(regmatches(c, Number))
   
   # check if there is a number in Cabin if not:
-  if (length(Cabin_num) == 0 || is.na(Cabin_num)) {
+  if (length(cabin_num) == 0 || is.na(cabin_num)) {
     return(NA)
   }
   # Uneven = Steuerbord = Starboard
-  if (Cabin_num %% 2 == 1) {
+  if (cabin_num %% 2 == 1) {
     return("Starboard")
   } 
   else { # Even = Backbord = Larboard
@@ -92,7 +92,7 @@ titanic$Deck <- sapply(titanic$Cabin, Deck) # generate Titanic$Deck in df
 # 6. Remove unnecessary columns
 # Keep only: PassengerId, Survived, Pclass, Sex, Age, SibSp, Parch, Fare, Embarked, Title
 # And the newly generated ones added: "Side", "Deck"
-titanic <- titanic[, c("PassengerId", "Survived", "Pclass", "Sex", "Age", "SibSp", "Parch", "Fare", "Embarked", "Title", "Side", "Deck")]
+titanic <- titanic[, c("Survived", "Pclass", "Sex", "Age", "SibSp", "Parch", "Fare", "Embarked", "Title", "Side", "Deck")]
 
 # 7. Save the cleaned dataset
 # Save to data/processed/titanic_cleaned.csv
