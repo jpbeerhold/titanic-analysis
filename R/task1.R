@@ -47,8 +47,8 @@ titanic$Age <- ifelse(is.na(titanic$Age), mean_title[titanic$Title], titanic$Age
 # hier drunter noch die Median Version falls wir die nutzen wollen
 
 # Median Version
-median_title <- tapply(titanic$Age, titanic$Title, function(x) median(x, na.rm = TRUE))
-titanic$Age <- ifelse(is.na(titanic$Age), median_title[titanic$Title], titanic$Age)
+# median_title <- tapply(titanic$Age, titanic$Title, function(x) median(x, na.rm = TRUE))
+# titanic$Age <- ifelse(is.na(titanic$Age), median_title[titanic$Title], titanic$Age)
 
 # 5. 
 # iii) Set those that have nothing noted as NAs
