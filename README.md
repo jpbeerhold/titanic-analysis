@@ -1,4 +1,3 @@
-```markdown
 # Titanic-Analysis
 Exploration of Titanic dataset with cleaning, visualization, and analysis. This project was created as part of our studies. It serves as a hands-on exercise to apply concepts such as statistical analysis in R.
 
@@ -8,7 +7,6 @@ Exploration of Titanic dataset with cleaning, visualization, and analysis. This 
 Use the following command to install required packages:
 ```bash
 install.packages(scan("requirements.txt", what="character"))
-```
 
 ---
 
@@ -29,12 +27,10 @@ Titanic-Analysis/
 │   ├── plots/          # Exported visualizations, such as graphs and charts.
 │   ├── reports/        # Generated reports in HTML, PDF, or Markdown formats.
 │   └── tables/         # Exported tables and processed data files (e.g., CSVs).
-├── docs/               # Additional documentation, notes, or references.
-├── tests/              # Unit tests for the scripts and helper functions.
 ├── requirements.txt    # List of required R packages for the project.
 ├── .Rproj              # RStudio project file (optional).
 ├── .gitignore          # Specifies files and folders to ignore in version control.
-└── README.md           # This file.
+└── README.md
 ```
 
 ---
@@ -84,4 +80,3 @@ Titanic-Analysis/
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
-```
