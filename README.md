@@ -7,13 +7,13 @@ Exploration of Titanic dataset with cleaning, visualization, and analysis. This 
 Use the following command to install required packages:
 ```bash
 install.packages(scan("requirements.txt", what="character"))
+```
 
 ---
 
 ## Project Structure
 The project is organized into the following directories:
 
-```
 Titanic-Analysis/
 ├── data/
 │   ├── raw/            # Contains the original, unmodified Titanic dataset.
@@ -31,7 +31,6 @@ Titanic-Analysis/
 ├── .Rproj              # RStudio project file (optional).
 ├── .gitignore          # Specifies files and folders to ignore in version control.
 └── README.md
-```
 
 ---
 
