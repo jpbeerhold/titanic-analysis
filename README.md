@@ -32,6 +32,7 @@ Titanic-Analysis/
 ├── .Rproj              # RStudio project file (optional).
 ├── .gitignore          # Specifies files and folders to ignore in version control.
 └── README.md
+└── LICENSE
 ```
 
 ---
