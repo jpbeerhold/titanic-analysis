@@ -14,6 +14,7 @@ install.packages(scan("requirements.txt", what="character"))
 ## Project Structure
 The project is organized into the following directories:
 
+```
 Titanic-Analysis/
 ├── data/
 │   ├── raw/            # Contains the original, unmodified Titanic dataset.
@@ -31,6 +32,7 @@ Titanic-Analysis/
 ├── .Rproj              # RStudio project file (optional).
 ├── .gitignore          # Specifies files and folders to ignore in version control.
 └── README.md
+```
 
 ---
 
@@ -48,12 +50,6 @@ Titanic-Analysis/
 - **`plots/`**: Stores generated plots and visualizations.
 - **`reports/`**: Contains final reports (e.g., RMarkdown output in PDF, HTML, or other formats).
 - **`tables/`**: Stores tabular outputs, such as cleaned data or summaries.
-
-### `docs/`
-- This folder contains additional project documentation, references, or any explanatory notes.
-
-### `tests/`
-- Includes test scripts to verify the correctness of helper functions or the analysis workflow.
 
 ---
 
