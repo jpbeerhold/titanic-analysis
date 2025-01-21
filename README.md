@@ -18,8 +18,7 @@ The project is organized into the following directories:
 Titanic-Analysis/
 ├── data/
 │   ├── raw/            # Contains the original, unmodified Titanic dataset.
-│   ├── processed/      # Contains cleaned and preprocessed datasets used in the analysis.
-│   └── README.md       # Documentation about the dataset and its sources.
+│   └── processed/      # Contains cleaned and preprocessed datasets used in the analysis.
 ├── scripts/
 │   ├── helpers/        # Utility scripts with helper functions for data processing and visualization.
 │   └── analysis/       # Scripts for the main analysis tasks, such as exploratory data analysis and modeling.
@@ -44,7 +43,6 @@ Titanic-Analysis/
 ### `scripts/`
 - **`helpers/`**: Includes reusable functions and utility scripts for common tasks (e.g., data cleaning, visualization).
 - **`analysis/`**: Contains analysis scripts for specific tasks (e.g., exploratory data analysis, predictive modeling).
-- **`main.R`**: The main script that ties together all the steps in the analysis pipeline.
 
 ### `output/`
 - **`plots/`**: Stores generated plots and visualizations.
@@ -65,10 +63,6 @@ Titanic-Analysis/
 3. Install the required packages:
    ```bash
    install.packages(scan("requirements.txt", what="character"))
-   ```
-4. Run the main analysis:
-   ```bash
-   Rscript scripts/main.R
    ```
 
 ---
