@@ -22,8 +22,7 @@ Titanic-Analysis/
 │   └── README.md       # Documentation about the dataset and its sources.
 ├── scripts/
 │   ├── helpers/        # Utility scripts with helper functions for data processing and visualization.
-│   ├── analysis/       # Scripts for the main analysis tasks, such as exploratory data analysis and modeling.
-│   └── main.R          # Main script to orchestrate the entire analysis pipeline.
+│   └── analysis/       # Scripts for the main analysis tasks, such as exploratory data analysis and modeling.
 ├── output/
 │   ├── plots/          # Exported visualizations, such as graphs and charts.
 │   ├── reports/        # Generated reports in HTML, PDF, or Markdown formats.
@@ -31,7 +30,7 @@ Titanic-Analysis/
 ├── requirements.txt    # List of required R packages for the project.
 ├── .Rproj              # RStudio project file (optional).
 ├── .gitignore          # Specifies files and folders to ignore in version control.
-└── README.md
+├── README.md
 └── LICENSE
 ```
 
