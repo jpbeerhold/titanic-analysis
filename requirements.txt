@@ -2,3 +2,6 @@ here
 dplyr
 tidyr
 rstudioapi
+DescTools
+e1071
+ggplot2
