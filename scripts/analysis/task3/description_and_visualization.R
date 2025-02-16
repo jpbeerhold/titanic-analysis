@@ -12,3 +12,17 @@ metric_variables(data$Fare)
 metric_variables(data$SibSp)
 metric_variables(data$Parch)
 
+library(ggplot2)
+
+# Altersverteilung
+ggplot(data, aes(x = Age)) +
+  geom_histogram(binwidth = 5, fill = "blue", color = "black", alpha = 0.7) +
+  theme_minimal() +
+  labs(title = "Altersverteilung der Passagiere", x = "Alter", y = "Häufigkeit")
+
+# Fare-Verteilung
+ggplot(data, aes(x = Fare)) +
+  geom_histogram(binwidth = 10, fill = "green", color = "black", alpha = 0.7) +
+  theme_minimal() +
+  labs(title = "Verteilung der Ticketpreise (Fare)", x = "Fare", y = "Häufigkeit")
+
