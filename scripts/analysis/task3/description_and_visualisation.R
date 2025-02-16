@@ -1,4 +1,4 @@
-data <- read.csv("/../../../titanic_cleaned.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+data <- read.csv("titanic-analysis/data/processed/titanic_cleaned.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
 
 source("../../../task2/statistics_categorial_variables.R")
 source("../../../task2/statistics_metric_variables.R")
