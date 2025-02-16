@@ -41,3 +41,16 @@ ggplot(data, aes(x = Sex, fill = Sex)) +
   theme_minimal() +
   labs(title = "Geschlechterverteilung", x = "Geschlecht", y = "Anzahl")
 
+##Aufgabe 2-a-iv
+##Überlebensrate nach Geschlecht
+ggplot(data, aes(x = Sex, fill = factor(Survived))) +
+  geom_bar(position = "fill") +
+  theme_minimal() +
+  labs(title = "Überlebensrate nach Geschlecht", x = "Geschlecht", y = "Anteil überlebt", fill = "Überlebt")
+
+##Überlebensrate nach Passagierklasse
+ggplot(data, aes(x = Pclass, fill = factor(Survived))) +
+  geom_bar(position = "fill") +
+  theme_minimal() +
+  labs(title = "Überlebensrate nach Passagierklasse", x = "Passagierklasse", y = "Anteil überlebt", fill = "Überlebt")
+
