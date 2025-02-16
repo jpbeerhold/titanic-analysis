@@ -54,3 +54,9 @@ ggplot(data, aes(x = Pclass, fill = factor(Survived))) +
   theme_minimal() +
   labs(title = "Überlebensrate nach Passagierklasse", x = "Passagierklasse", y = "Anteil überlebt", fill = "Überlebt")
 
+##Aufgabe 2-a-v
+visualize_categorical(data, "Embarked", "Survived")
+visualize_categorical(data, "Title", "Sex")
+visualize_categorical(data, "Title", "Embarked", "Survived")
+visualize_categorical(data, "Embarked", "Title", "Sex", "Survived")
+
