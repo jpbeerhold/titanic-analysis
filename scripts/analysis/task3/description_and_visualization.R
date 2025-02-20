@@ -190,21 +190,21 @@ ggplot(data, aes(x = factor(Survived), y = Age, fill = factor(Survived))) +
 
 ####################
 
-##Überlebensrate nach Anzahl der Geschwister/Ehepartner
+###Überlebensrate nach Anzahl der Geschwister/Ehepartner
 visualize_categorical(data, "SibSp", "Survived")
 
 ##...
 
 ####################
 
-##Überlebensrate nach Anzahl der Eltern/Kinder
+###Überlebensrate nach Anzahl der Eltern/Kinder
 visualize_categorical(data, "Parch", "Survived")
 
 ##...
 
 ####################
 
-##Überlebensrate nach Einsteigehafen
+###Überlebensrate nach Einsteigehafen
 visualize_categorical(data, "Embarked", "Survived")
 
 ##...
@@ -231,12 +231,16 @@ ggplot(bivariate_survived_embarked_df, aes(x = Survived, y = Embarked, fill = Fr
 
 ##...
 
-##Überlebensrate nach Passagierklasse und Geschlecht
+####################
+
+###Überlebensrate nach Passagierklasse und Geschlecht
 visualize_categorical(data, "Survived", "Pclass", "Sex")
 
 ##...
 
-##Überlebensrate nach Passagierklasse und Einsteigehafen
+####################
+
+###Überlebensrate nach Passagierklasse und Einsteigehafen
 visualize_categorical(data, "Survived", "Pclass", "Embarked")
 
 ##...
@@ -244,7 +248,7 @@ visualize_categorical(data, "Survived", "Pclass", "Embarked")
 ########################################
 
 ## (ii) Wie verhält sich der Ticketpreis gegen andere Variablen?
-##Ticketpreis nach Überlebensrate
+###Ticketpreis nach Überlebensrate
 ggplot(data, aes(x = factor(Survived), y = Fare, fill = factor(Survived))) +
   geom_boxplot() +
   theme_minimal() +
@@ -255,7 +259,7 @@ ggplot(data, aes(x = factor(Survived), y = Fare, fill = factor(Survived))) +
 
 ####################
 
-##Ticketpreis nach Passagierklasse
+###Ticketpreis nach Passagierklasse
 ggplot(data, aes(x = factor(Pclass), y = Fare, fill = factor(Pclass))) +
   geom_boxplot() +
   theme_minimal() +
@@ -266,7 +270,7 @@ ggplot(data, aes(x = factor(Pclass), y = Fare, fill = factor(Pclass))) +
 
 ####################
 
-##Ticketpreis nach Einsteigehafen
+###Ticketpreis nach Einsteigehafen
 ggplot(data, aes(x = factor(Embarked), y = Fare, fill = factor(Embarked))) +
   geom_boxplot() +
   theme_minimal() +
@@ -275,7 +279,7 @@ ggplot(data, aes(x = factor(Embarked), y = Fare, fill = factor(Embarked))) +
 
 ##...
 
-##Ticketpreis nach Familiengröße
+###Ticketpreis nach Familiengröße
 data$FamilySize <- data$SibSp + data$Parch
 ggplot(data, aes(x = factor(FamilySize), fill = factor(Survived))) +
   geom_bar(position = "fill") +
@@ -285,8 +289,8 @@ ggplot(data, aes(x = factor(FamilySize), fill = factor(Survived))) +
 ##...
 
 ########################################
-
-##Scatterplot Alter nach Ticketpreis und Überlebensrate
+##Weitere nützliche Analysen:
+###Scatterplot Alter nach Ticketpreis und Überlebensrate
 ggplot(data, aes(x = Age, y = Fare, color = factor(Survived))) +
   geom_point(alpha = 0.5) +
   theme_minimal() +
@@ -295,7 +299,9 @@ ggplot(data, aes(x = Age, y = Fare, color = factor(Survived))) +
 
 ##...
 
-##Altersverteilung nach Geschlecht und Überlebensrate
+####################
+
+###Altersverteilung nach Geschlecht und Überlebensrate
 ggplot(data, aes(x = Age, fill = factor(Survived))) +
   geom_histogram(binwidth = 5, alpha = 0.5, position = "identity") +
   facet_wrap(~ Sex) +
@@ -305,9 +311,9 @@ ggplot(data, aes(x = Age, fill = factor(Survived))) +
 
 ##...
 
-##Weitere nützliche analysen:
-##Geschlecht nach Einsteigehafen
+####################
 
+###Geschlecht nach Einsteigehafen
 ##Mosaikplot für die Abhängigkeit zwischen Geschlecht und Einsteigehafen
 bivariate_sex_embarked <- bivariate_two_categorial(data, "Sex", "Embarked")
 
@@ -340,11 +346,41 @@ ggplot(bivariate_sex_embarked_df, aes(x = Embarked, y = Sex, fill = Frequency)) 
 
 ##...
 
-##
+####################
+
+##Zusammenhang zwischen Titel, Einsteigehafen und Überlebensrate
 visualize_categorical(data, "Title", "Embarked", "Survived")
 ##...
 
-##
+####################
+
+##Zusammenhang zwischen Einsteigehafen, Titel, Geschlecht und Überlebensrate
 visualize_categorical(data, "Embarked", "Title", "Sex", "Survived")
 ##...
+
+####################
+
+##Korrelationen zwischen metrischen und dichotomen Variablen
+##Korrelation zwischen Alter und Geschlecht
+punktbiseriale_korrelation(data$Age, data$Sex)
+##...
+
+##Korrelation zwischen Alter und Überlebensrate
+punktbiseriale_korrelation(data$Age, data$Survived)
+##...
+
+##Korrelation zwischen Ticketpreis und Geschlecht
+punktbiseriale_korrelation(data$Fare, data$Sex)
+##...
+
+##Korrelation zwischen Ticketpreis und Überlebensrate
+punktbiseriale_korrelation(data$Fare, data$Survived)
+##...
+
+
+
+
+
+
+
 
