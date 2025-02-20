@@ -12,15 +12,14 @@ source("../../../task2/visualization_categorical_variables.R")
 source("../../../task2/statistics_bivariate_categorical_variables.R")
 source("../../../task2/bivariate_statistics_metric_dichotomous.R")
 
-##Aufgabe 2-a-i
-##1. Description
+##Referenz: Aufgabe 2-a-i
 metric_variables(data$Age)
 metric_variables(data$Fare)
 metric_variables(data$SibSp)
 metric_variables(data$Parch)
 
-##Visualization
-##Altersverteilung
+########################################
+###Altersverteilung
 metric_age <- metric_variables(data$Age)
 
 ##Histogramm mit Kennzahlen (Mittelwert, Median, Modus)
@@ -59,7 +58,9 @@ ggplot(data, aes(x = Age)) +
 
 ##...
 
-##Fare-Verteilung
+####################
+
+###Fare-Verteilung
 metric_fare <- metric_variables(data$Fare)
 
 ##Histogramm mit Kennzahlen (Mittelwert, Median, Modus)
@@ -98,14 +99,18 @@ ggplot(data, aes(x = Fare)) +
 
 ##...
 
+####################
+
 ##Paarweise Korrelationen der metrischen Variablen
 numeric_vars <- data %>% select(Age, Fare, SibSp, Parch)
 ggpairs(numeric_vars, title = "Paarweise Korrelationen der metrischen Variablen")
 
 ##...
 
-##Aufgabe 2-a-ii
-##Visualization
+########################################
+
+##Referenz: Aufgabe 2-a-ii
+##Visualisation von Geschlecht, Passagierklasse, Einsteigehafen & Überlebensrate
 categorical_stats <- calculate_categorical_stats(data, c("Sex", "Pclass", "Embarked", "Survived"))
 
 # Balkendiagramm für Häufigkeiten
@@ -122,6 +127,7 @@ ggplot(categorical_stats, aes(x = Category, y = Frequency, fill = Variable)) +
 #########################################################################################################################
 ##Analysen von Überlebensrate und Ticketpreis gegen andere Variablen
 ## (i) Wie verhält sich die Überlebensrate gegen andere Variablen?
+##Referenz: Aufgabe 2-a-iii, Aufgabe 2-a-v
 ###Überlebensrate nach Geschlecht
 visualize_categorical(data, "Sex", "Survived")
 
@@ -290,6 +296,7 @@ ggplot(data, aes(x = factor(FamilySize), fill = factor(Survived))) +
 
 ########################################
 ##Weitere nützliche Analysen:
+## Referenz: Aufgabe 2-a-iii, Aufgabe 2-a-iv & Aufgabe 2-a-v
 ###Scatterplot Alter nach Ticketpreis und Überlebensrate
 ggplot(data, aes(x = Age, y = Fare, color = factor(Survived))) +
   geom_point(alpha = 0.5) +
@@ -317,9 +324,9 @@ ggplot(data, aes(x = Age, fill = factor(Survived))) +
 ##Mosaikplot für die Abhängigkeit zwischen Geschlecht und Einsteigehafen
 bivariate_sex_embarked <- bivariate_two_categorial(data, "Sex", "Embarked")
 
-mosaicplot(bivariate_sex_embarked$Kontingenztafel, col = c("lightblue", "pink"), 
+mosaicplot(bivariate_sex_embarked$Kontingenztafel, col = c("yellow", "orange", "red"), 
            main = "Mosaikplot: Geschlecht vs. Einsteigehafen", 
-           xlab = "Einsteigehafen", ylab = "Geschlecht")
+           xlab = "Geschlecht", ylab = "Einsteigehafen")
 
 ##...
 
@@ -376,6 +383,7 @@ punktbiseriale_korrelation(data$Fare, data$Sex)
 ##Korrelation zwischen Ticketpreis und Überlebensrate
 punktbiseriale_korrelation(data$Fare, data$Survived)
 ##...
+
 
 
 
