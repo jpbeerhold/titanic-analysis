@@ -4,13 +4,9 @@ library(vcd)
 library(reshape2)
 library(GGally)
 
-data <- read.csv("titanic-analysis/data/processed/titanic_cleaned.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
-
-source("../../../task2/statistics_categorial_variables.R")
-source("../../../task2/statistics_metric_variables.R")
-source("../../../task2/visualization_categorical_variables.R")
-source("../../../task2/statistics_bivariate_categorical_variables.R")
-source("../../../task2/bivariate_statistics_metric_dichotomous.R")
+data <- read.csv(here("data", "processed", "titanic_cleaned.csv"), 
+                 header = TRUE, sep = ",", stringsAsFactors = FALSE)
+source(here("scripts", "task2.R"))
 
 ##Referenz: Aufgabe 2-a-i
 metric_variables(data$Age)
