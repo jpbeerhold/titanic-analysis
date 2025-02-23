@@ -3,6 +3,7 @@ library(dplyr)
 library(vcd)
 library(reshape2)
 library(GGally)
+library(here)
 
 data <- read.csv(here("data", "processed", "titanic_cleaned.csv"), 
                  header = TRUE, sep = ",", stringsAsFactors = FALSE)
