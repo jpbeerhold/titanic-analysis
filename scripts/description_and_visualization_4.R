@@ -4,7 +4,7 @@ library(vcd)
 library(reshape2)
 library(GGally)
 library(here)
-here()
+
 data <- read.csv(here("data", "processed", "titanic_cleaned.csv"), 
                  header = TRUE, sep = ",", stringsAsFactors = FALSE)
 source(here("scripts", "task2.R"))
