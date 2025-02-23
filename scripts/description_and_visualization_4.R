@@ -3,14 +3,12 @@ library(dplyr)
 library(vcd)
 library(reshape2)
 library(GGally)
+library(here)
+here()
+data <- read.csv(here("data", "processed", "titanic_cleaned.csv"), 
+                 header = TRUE, sep = ",", stringsAsFactors = FALSE)
+source(here("scripts", "task2.R"))
 
-data <- read.csv("titanic-analysis/data/processed/titanic_cleaned.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
-
-source("../../../task2/statistics_categorial_variables.R")
-source("../../../task2/statistics_metric_variables.R")
-source("../../../task2/visualization_categorical_variables.R")
-source("../../../task2/statistics_bivariate_categorical_variables.R")
-source("../../../task2/bivariate_statistics_metric_dichotomous.R")
 
 ##Referenz: Aufgabe 2-a-i
 metric_variables(data$Age)
@@ -770,12 +768,3 @@ punktbiseriale_korrelation(data$Fare, data$Survived)
 
 ## => Der Ticketpreis ist der entscheidendste Faktor des Überlebens, während
 ## das Alter sowie Geschlecht eher eine geringere, aber sichtbare Rolle spielt.
-
-
-
-
-
-
-
-
-
