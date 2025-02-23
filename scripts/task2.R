@@ -84,12 +84,6 @@ metric_variables <- function(x) {
 
 # ii)
 
-# Load necessary libraries
-library(dplyr)
-library(tidyr)
-library(here)
-library(rstudioapi)
-
 # Main function to calculate descriptive statistics for categorical variables
 # 
 # Args:
