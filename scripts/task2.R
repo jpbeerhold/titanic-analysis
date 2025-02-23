@@ -84,31 +84,31 @@ metric_variables <- function(x) {
 
 # ii)
 
-# Main function to calculate descriptive statistics for categorical variables
-# 
-# Args:
-#   data: Input data as data frame.
-#   categorical_vars: Vector with Strings as variable names.
+# Hauptfunktion zur Berechnung beschreibender Statistiken für kategoriale Variablen
 #
-# Returns:
-#   data frame
+# Argumente:
+#   data: Eingabedaten als Data Frame.
+#   categorical_vars: Vektor mit Strings als Variablennamen.
+#
+# Rückgabe:
+#   Data Frame
 calculate_categorical_stats <- function(data, categorical_vars) {
-  # Check if the provided variables exist in the data frame
+  # Überprüfen, ob die angegebenen Variablen im Data Frame existieren
   if (!all(categorical_vars %in% names(data))) {
-    stop("Some categorical variables are not in the data frame.")
+    stop("Einige kategoriale Variablen sind nicht im Data Frame enthalten.")
   }
   
-  # Initialize a list to store results
+  # Eine Liste initialisieren, um die Ergebnisse zu speichern
   stats_list <- list()
   
-  # Loop through each categorical variable
+  # Schleife durch jede kategoriale Variable
   for (var in categorical_vars) {
-    # Calculate statistics using the internal helper function
+    # Berechnung der Statistiken mit der internen Hilfsfunktion
     stats <- internal_categorical_summary(data[[var]])
     stats_list[[var]] <- stats
   }
   
-  # Convert list to data frame for better readability
+  # Umwandlung der Liste in einen Data Frame für bessere Lesbarkeit
   stats_df <- bind_rows(stats_list, .id = "Variable")
   
   return(stats_df)
@@ -292,25 +292,25 @@ visualize_categorical <- function(data, var1, var2, var3 = NULL, var4 = NULL) {
 
 
 
-# Internal helper function to calculate summary statistics for a single categorical variable.
+# Interne Hilfsfunktion zur Berechnung zusammenfassender Statistiken für eine einzelne kategoriale Variable.
 # 
-# Args:
-#   variable: String as variable name.
+# Argumente:
+#   variable: String als Variablenname.
 #
-# Returns:
-#   data frame.
+# Rückgabe:
+#   Data Frame.
 internal_categorical_summary <- function(variable) {
-  # Calculate frequency table
+  # Erstellen einer Häufigkeitstabelle
   freq_table <- table(variable)
   
-  # Calculate proportions
+  # Berechnung der Anteile
   proportions <- prop.table(freq_table)
   
-  # Create a summary data frame
+  # Erstellen eines zusammenfassenden Data Frames
   summary_df <- data.frame(
-    Category = names(freq_table),
-    Frequency = as.integer(freq_table),
-    Proportion = as.numeric(proportions)
+    Kategorie = names(freq_table),
+    Häufigkeit = as.integer(freq_table),
+    Anteil = as.numeric(proportions)
   )
   
   return(summary_df)
